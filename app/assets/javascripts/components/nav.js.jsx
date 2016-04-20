@@ -86,14 +86,17 @@ var Nav = React.createClass({
         </span>
       )
     }else {
-      <span>
-        <Mz.Navbar className="blue" brand='Cheeses' left>
-          <Mz.NavItem href='/'>All Cheeses</Mz.NavItem>
-          <Mz.NavItem href='/users'>Users</Mz.NavItem>
-          <Mz.NavItem href='/sign_out'>Logout</Mz.NavItem>
-          <Mz.NavItem href='/cheeses/new'>Add Cheese</Mz.NavItem>
-        </Mz.Navbar>
-      </span>
+      return (
+
+        <span>
+          <Mz.Navbar className="blue" brand='Cheeses' left>
+            <Mz.NavItem href='/'>All Cheeses</Mz.NavItem>
+            <Mz.NavItem href='/users'>Users</Mz.NavItem>
+            <Mz.NavItem href='/sign_out'>Logout</Mz.NavItem>
+            <Mz.NavItem href='/cheeses/new'>Add Cheese</Mz.NavItem>
+          </Mz.Navbar>
+        </span>
+        )
     }
   },
 

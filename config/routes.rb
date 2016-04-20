@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   delete '/sign_out', to: 'sessions#destroy'
 
 
-  get 'cheeses/index'
 
-  get 'cheeses/show'
 
+  post 'cheeses/:id/favorite' => 'cheeses#favorite'
+  resources :cheeses
   get 'users' => 'users#index'
 
   post 'users' => 'users#create'

@@ -1,2 +1,7 @@
-<h1>Cheeses#index</h1>
-<p>Find me in app/views/cheeses/index.html.erb</p>
+<h1>Cheeses</h1>
+
+
+
+<% @cheeses.each do |cheese| %>
+<%= render partial: 'cheesebox', locals: {cheese: cheese} %>
+<% end %>
