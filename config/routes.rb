@@ -9,14 +9,8 @@ Rails.application.routes.draw do
 
   post 'cheeses/:id/favorite' => 'cheeses#favorite'
   resources :cheeses
-  get 'users' => 'users#index'
-  get 'users/:id' => 'users#show'
+  resources :users
 
-  post 'users' => 'users#create'
-
-  get 'users/show'
-
-  get 'users/new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
