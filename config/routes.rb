@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'cheeses/:id/favorite' => 'cheeses#favorite'
   resources :cheeses
   get 'users' => 'users#index'
+  get 'users/:id' => 'users#show'
 
   post 'users' => 'users#create'
 

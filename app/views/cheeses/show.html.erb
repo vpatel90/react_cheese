@@ -1,2 +1,5 @@
-<h1>Cheeses#show</h1>
-<p>Find me in app/views/cheeses/show.html.erb</p>
+<h1></h1>
+<%= render partial: 'cheesebox', locals: {cheese: @cheese} %>
+<% @users.each do |user| %>
+<%= render partial: 'users/userbox', locals: {user: user} %>
+<% end %>

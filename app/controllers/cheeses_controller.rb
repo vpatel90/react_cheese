@@ -1,9 +1,11 @@
 class CheesesController < ApplicationController
   def index
-    @cheeses = Cheese.all
+    @cheeses = Cheese.all.order(favorites_count: :desc)
   end
 
   def show
+    @cheese = Cheese.find(params[:id])
+    @users = @cheese.favorite_users
   end
 
   def favorite
