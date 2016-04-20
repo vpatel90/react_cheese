@@ -19,7 +19,7 @@ var CheeseForm = React.createClass({
     var that = this;
     $.ajax({
           method: "POST",
-          url: '/cheeses',
+          url: '/cheeses.json',
           data: {
             cheese: {
               name: this.state.name,
