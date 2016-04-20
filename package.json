@@ -1,0 +1,12 @@
+{
+  "name": "react-and-cheese",
+  "dependencies" : {
+    "browserify": "~10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "react-materialize": "^0.14.3"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10"
+  }
+}

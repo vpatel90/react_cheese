@@ -50,8 +50,11 @@ group :development do
   gem 'spring'
 end
 
+gem "browserify-rails"
+gem "materialize-sass"
 
-gem 'materialize-sass'
+
+
 gem 'faker'
 gem 'kaminari'
 gem 'bcrypt'

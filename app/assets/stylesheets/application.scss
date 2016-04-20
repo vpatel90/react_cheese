@@ -14,6 +14,17 @@
  *= require_self
  */
 
- @import "materialize";
+ @import 'materialize';
  @import "font-awesome-sprockets";
  @import "font-awesome";
+
+nav{
+  background:#38435a;
+  padding: 0 17%;
+}
+
+@media screen and (max-width: 1200px) {
+  nav{
+    padding: 0;
+  }
+}

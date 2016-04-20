@@ -13,8 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require materialize-sprockets
 //= require react
 //= require react_ujs
 //= require components
+//= require materialize-sprockets
 //= require_tree .
+
+window.Materialize = require('react-materialize');
+window.Mz = Materialize;
+console.log(Mz);

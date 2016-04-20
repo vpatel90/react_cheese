@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  get '/sign_in', to: 'sessions#sign_in', as: 'sign_in'
+  post '/sign_in', to: 'sessions#create'
+  get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
+  delete '/sign_out', to: 'sessions#destroy'
+
 
   get 'cheeses/index'
 
   get 'cheeses/show'
 
-  get 'users/index'
+  get 'users' => 'users#index'
+
+  post 'users' => 'users#create'
 
   get 'users/show'
 
