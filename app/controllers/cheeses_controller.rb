@@ -12,7 +12,13 @@ class CheesesController < ApplicationController
     if signed_in?
       @fave = current_user.favorites.build(cheese_id: params[:id])
       @fave.save
-      redirect_to root_path
+      @cheese = Cheese.find(params[:id])
+      respond_to do |format|
+        format.json { render json: @cheese }
+        format.html { redirect_to root_path }
+      end
+
+
     end
   end
 end

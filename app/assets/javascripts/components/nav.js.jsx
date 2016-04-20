@@ -39,7 +39,7 @@ var Nav = React.createClass({
   },
 
   handleSubmit: function () {
-
+    var that = this;
     $.ajax({
       method: "POST",
       url: '/users',
@@ -50,7 +50,9 @@ var Nav = React.createClass({
           password_confirmation: this.state.password_confirmation
         }
       }
-    })
+    }).done(function(response){
+        that.handleSignupClick();
+    });
   },
 
   renderSignUp: function () {
@@ -77,23 +79,15 @@ var Nav = React.createClass({
     if (this.props.current_user === null) {
       return (
         <span>
-          <Mz.Navbar className="blue" brand='Cheeses' left>
-            <Mz.NavItem href='/'>All Cheeses</Mz.NavItem>
-            <Mz.NavItem href='/users'>Users</Mz.NavItem>
             <Mz.NavItem href='/sign_in'>Login</Mz.NavItem>
             <Mz.NavItem onClick={this.handleSignupClick} >Sign Up</Mz.NavItem>
-          </Mz.Navbar>
         </span>
       )
     }else {
       return (
         <span>
-          <Mz.Navbar className="blue" brand='Cheeses' left>
-            <Mz.NavItem href='/'>All Cheeses</Mz.NavItem>
-            <Mz.NavItem href='/users'>Users</Mz.NavItem>
             <Mz.NavItem href='/sign_out'>Logout</Mz.NavItem>
             <Mz.NavItem href='/cheeses/new'>Add Cheese</Mz.NavItem>
-          </Mz.Navbar>
         </span>
         )
     }
@@ -102,7 +96,12 @@ var Nav = React.createClass({
   render: function() {
     return (
       <span>
-        {this.renderSignedIn()}
+        <Mz.Navbar className="blue" brand='Cheeses' left>
+          <Mz.NavItem href='/'>All Cheeses</Mz.NavItem>
+          <Mz.NavItem href='/users'>Users</Mz.NavItem>
+          {this.renderSignedIn()}
+        </Mz.Navbar>
+
         {this.renderSignUp()}
       </span>
       );

@@ -1,7 +1,8 @@
 <h1>Cheeses</h1>
-
-
-
 <% @cheeses.each do |cheese| %>
-<%= render partial: 'cheesebox', locals: {cheese: cheese} %>
+  <%= react_component('CheeseBox', cheese: cheese) %>
 <% end %>
+
+<!-- <% @cheeses.each do |cheese| %>
+<%= render partial: 'cheesebox', locals: {cheese: cheese} %>
+<% end %> -->

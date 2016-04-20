@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(user_name:"Vivek", password:"password")
-Cheese.create(name:"Cheddar", user_id: 1)
+
 
 99.times do
   User.create(user_name:Faker::Internet.user_name, password:"password")
@@ -19,5 +19,5 @@ cheeses = ["Cheddar", "Gouda", "Brie", "Pepper Jack", "Meunster", "Provolone", "
 end
 
 25.times do
-  Favorite.create(user_id: rand(1..99), cheese_id:rand(1..10))
+  Favorite.create(user_id: rand(2..99), cheese_id:rand(1..10))
 end
