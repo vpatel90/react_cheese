@@ -3,6 +3,19 @@ class CheesesController < ApplicationController
     @cheeses = Cheese.all.order(favorites_count: :desc)
   end
 
+  def create
+    @cheese = Cheese.new(cheese_params)
+    respond_to do |format|
+      if @cheese.save
+        format.json { render @cheese}
+        format.html { redirect_to root_path }
+      else
+        format.html { render :new }
+        format.json { render json: @cheese.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def show
     @cheese = Cheese.find(params[:id])
     @users = @cheese.favorite_users

@@ -22,3 +22,8 @@
 window.Materialize = require('react-materialize');
 window.Mz = Materialize;
 console.log(Mz);
+
+
+window.moment = require('moment');
+moment().format();
+console.log(moment);

@@ -8,9 +8,7 @@ var Nav = React.createClass({
     return {
       signup: false,
       login: false,
-      user_name: '',
-      password: '',
-      password_confirmation: ''
+      newCheese: false
     };
   },
 
@@ -19,62 +17,13 @@ var Nav = React.createClass({
       signup: !this.state.signup
     });
   },
-
-  uchange: function (event) {
+  handleNewCheeseClick: function () {
     this.setState({
-      user_name: event.target.value
+      newCheese: !this.state.newCheese
     });
   },
 
-  pchange: function (event) {
-    this.setState({
-      password: event.target.value
-    });
-  },
 
-  pcchange: function (event) {
-    this.setState({
-      password_confirmation: event.target.value
-    });
-  },
-
-  handleSubmit: function () {
-    var that = this;
-    $.ajax({
-      method: "POST",
-      url: '/users',
-      data: {
-        user: {
-          user_name: this.state.user_name,
-          password: this.state.password,
-          password_confirmation: this.state.password_confirmation
-        }
-      }
-    }).done(function(response){
-        that.handleSignupClick();
-    });
-  },
-
-  renderSignUp: function () {
-    if (this.state.signup === true){
-      return (
-        <div className="container">
-          <div>
-            <input placeholder="User Name" type="text" onChange={this.uchange} value={this.state.user_name} />
-          </div>
-          <div>
-            <input placeholder="Password" type="password" onChange={this.pchange} value={this.state.password}  />
-          </div>
-          <div>
-            <input placeholder="Password Confirmation" type="password" onChange={this.pcchange} value={this.state.password_confirmation} />
-          </div>
-          <div>
-            <input type="submit" name="commit" value="Create Account" className="btn btn-primary" onClick = {this.handleSubmit} />
-          </div>
-        </div>
-      );
-    }
-  },
   renderSignedIn: function () {
     if (this.props.current_user === null) {
       return (
@@ -87,7 +36,7 @@ var Nav = React.createClass({
       return (
         <span>
             <Mz.NavItem href='/sign_out'>Logout</Mz.NavItem>
-            <Mz.NavItem href='/cheeses/new'>Add Cheese</Mz.NavItem>
+            <Mz.NavItem onClick={this.handleNewCheeseClick}>Add Cheese</Mz.NavItem>
         </span>
         )
     }
@@ -101,8 +50,9 @@ var Nav = React.createClass({
           <Mz.NavItem href='/users'>Users</Mz.NavItem>
           {this.renderSignedIn()}
         </Mz.Navbar>
+        <SignUpForm completeHandler={this.handleSignupClick} signup={this.state.signup}/>
+        <CheeseForm completeHandler={this.handleNewCheeseClick} newCheese={this.state.newCheese}/>
 
-        {this.renderSignUp()}
       </span>
       );
   }

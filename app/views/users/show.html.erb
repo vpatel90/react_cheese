@@ -1,5 +1,5 @@
 <h1></h1>
-<%= render partial: 'userbox', locals: {user: @user} %>
+<%= react_component('UserBox', user: @user) %>
 <% @cheeses.each do |cheese| %>
-<%= render partial: 'cheeses/cheesebox', locals: {cheese: cheese} %>
+<%= react_component('CheeseBox', cheese: cheese) %>
 <% end %>

@@ -3,7 +3,8 @@
   "dependencies" : {
     "browserify": "~10.2.4",
     "browserify-incremental": "^3.0.1",
-    "react-materialize": "^0.14.3"
+    "react-materialize": "^0.14.3",
+    "moment": "^2.13.0"
   },
   "license": "MIT",
   "engines": {
