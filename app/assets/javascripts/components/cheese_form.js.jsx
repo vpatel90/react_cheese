@@ -28,7 +28,7 @@ var CheeseForm = React.createClass({
             }
           }
     }).done(function(response){
-        that.props.completeHandlerTwo();
+        that.props.completeHandler();
     });
   },
   render: function() {

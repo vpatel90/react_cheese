@@ -28,7 +28,6 @@ var CheeseBox = React.createClass({
 
 
   render: function () {
-      console.log(this.props.cheese);
       var url = "/cheeses/"+ this.props.cheese.id;
       var aStyle = {
         cursor: "pointer"
