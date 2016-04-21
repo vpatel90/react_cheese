@@ -1,4 +1,5 @@
 var CheeseForm = React.createClass({
+
   getInitialState: function () {
     return {
       name: '',
@@ -27,7 +28,7 @@ var CheeseForm = React.createClass({
             }
           }
     }).done(function(response){
-        that.props.completeHandler();
+        that.props.completeHandlerTwo();
     });
   },
   render: function() {

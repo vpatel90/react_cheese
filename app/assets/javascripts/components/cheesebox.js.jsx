@@ -28,9 +28,13 @@ var CheeseBox = React.createClass({
 
 
   render: function () {
+      console.log(this.props.cheese);
       var url = "/cheeses/"+ this.props.cheese.id;
       var aStyle = {
         cursor: "pointer"
+      };
+      var spanStyle = {
+        marginRight: "10px"
       };
       return (
         <div className="row">
@@ -38,7 +42,9 @@ var CheeseBox = React.createClass({
             <div className="card blue-grey lighten-1">
               <div className="card-content white-text">
                 <a className="orange-text" href={url}><span className="card-title"> {this.props.cheese.name} </span></a>
-                <span className="right"><i className="fa fa-heart" aria-hidden="true"></i> {this.state.favorites_count}</span>
+                <span className="right"><RelativeTime time={this.props.cheese.created_at} />
+                  <i style={spanStyle} className="fa fa-heart" aria-hidden="true"></i>
+                    {this.state.favorites_count}</span>
                 <p> {this.props.cheese.description} </p>
               </div>
               <div className="card-action">

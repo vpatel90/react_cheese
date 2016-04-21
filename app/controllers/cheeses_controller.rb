@@ -7,7 +7,7 @@ class CheesesController < ApplicationController
     @cheese = current_user.cheeses.build(cheese_params)
     respond_to do |format|
       if @cheese.save
-        format.json { render @cheese}
+        format.json { render json: @cheese }
         format.html { redirect_to root_path }
       else
         format.html { render :new }

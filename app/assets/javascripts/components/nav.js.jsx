@@ -51,7 +51,7 @@ var Nav = React.createClass({
           {this.renderSignedIn()}
         </Mz.Navbar>
         <SignUpForm completeHandler={this.handleSignupClick} signup={this.state.signup}/>
-        <CheeseForm completeHandler={this.handleNewCheeseClick} newCheese={this.state.newCheese}/>
+        <CheeseForm completeHandlerTwo={this.handleNewCheeseClick} newCheese={this.state.newCheese}/>
 
       </span>
       );
