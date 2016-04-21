@@ -4,13 +4,18 @@ class SessionsController < ApplicationController
 
  def create
    user = User.find_by(user_name: params[:user_name])
-
    if user && user.authenticate(params[:password])
-     session[:user_id] = user.id
-     redirect_to root_path
+      respond_to do |format|
+        session[:user_id] = user.id
+        format.json { render json: { message: "Success"} }
+        format.html { redirect_to root_path }
+      end
    else
-     flash[:alert] = "Invalid Username or Password"
-     render :sign_in
+      #  flash[:alert] = "Invalid Username or Password"
+      respond_to do |format|
+        format.html { render :sign_in }
+        format.json { render json: { message: "Failed"} }
+      end
    end
  end
 

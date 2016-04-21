@@ -19,11 +19,7 @@
 //= require materialize-sprockets
 //= require_tree .
 
-window.Materialize = require('react-materialize');
-window.Mz = Materialize;
-console.log(Mz);
+window.Mz = require('react-materialize');
 
 
 window.moment = require('moment');
-moment().format();
-console.log(moment);

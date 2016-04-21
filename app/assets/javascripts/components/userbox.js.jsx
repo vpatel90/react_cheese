@@ -13,7 +13,6 @@ var UserBox = React.createClass({
                  <a className="orange-text" href={url}><span className="card-title"> {this.props.user.user_name} </span></a>
                  <p>Contributed: {this.props.user.contributed} </p>
                  <p>Favorites: {this.props.user.favorites_count} </p>
-
                </div>
                <div className="card-action">
 

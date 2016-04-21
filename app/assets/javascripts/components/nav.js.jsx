@@ -1,4 +1,3 @@
-
 var Nav = React.createClass({
 
   propTypes: {

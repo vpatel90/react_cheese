@@ -1,6 +1,6 @@
 var CheeseBox = React.createClass({
   propTypes: {
-    cheeses: React.PropTypes.object
+    cheese: React.PropTypes.object
   },
 
   getInitialState: function () {
@@ -8,8 +8,6 @@ var CheeseBox = React.createClass({
       favorites_count: this.props.cheese.favorites_count,
     };
   },
-
-
 
   handleFaveClick: function () {
     var that = this;
@@ -25,7 +23,6 @@ var CheeseBox = React.createClass({
         });
     });
   },
-
 
   render: function () {
       var url = "/cheeses/"+ this.props.cheese.id;

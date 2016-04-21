@@ -3,6 +3,8 @@ var LoginForm = React.createClass({
     return {
       user_name: '',
       password: '',
+      load: false,
+      invalid: false
     };
   },
 
@@ -21,22 +23,52 @@ var LoginForm = React.createClass({
 
   handleSubmit: function () {
     var that = this;
+    this.state.load = true;
     $.ajax({
       method: "POST",
+      format: "JSON",
       url: '/sign_in',
       data: {
         user_name: this.state.user_name,
         password: this.state.password,
       }
     }).done(function(response){
-        that.props.completeHandler();
+        if (response.message === 'Success'){
+          window.location.href= "/";
+        } else {
+          Materialize.toast('Invalid Username or Password!', 4000);
+          that.setState({
+            load: false
+          });
+        }
     });
+  },
+
+  renderLoadBar: function() {
+    if (this.state.load === true) {
+      return (
+        <Mz.ProgressBar />
+      );
+    } else {
+      return (
+        <span />
+      )
+    }
+  },
+
+  renderInvalid: function() {
+    if (this.state.invalid === true) {
+      return (
+        <div> Invalid Login </div>
+      );
+    }
   },
 
   render: function() {
       if (this.props.signup === true){
         return (
           <div className="container">
+            {this.renderInvalid()}
             <div>
               <input placeholder="User Name" type="text" onChange={this.uchange} value={this.state.user_name} />
             </div>
@@ -46,6 +78,7 @@ var LoginForm = React.createClass({
             <div>
               <input type="submit" name="commit" value="Log In" className="btn btn-primary" onClick = {this.handleSubmit} />
             </div>
+            {this.renderLoadBar()}
           </div>
         );
       } else {
